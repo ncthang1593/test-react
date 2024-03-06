@@ -1,23 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import { Parent } from "./components/Parent";
+import { useState } from "react";
 
 function App() {
+  const [isShow, setIsShow] = useState(true);
+  function showParentComponent() {
+    setIsShow(!isShow);
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <button onClick={showParentComponent}>Show Parent Component</button>
+      {isShow && <Parent></Parent>}
     </div>
   );
 }
